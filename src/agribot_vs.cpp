@@ -145,8 +145,8 @@ namespace agribot_vs{
     RNG rng(12345);
 
     // finds cluster/contour in the image
-    findContours(hueMask, contours, hierarchy, CV_RETR_TREE,
-                CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
+    findContours(hueMask, contours, hierarchy, cv::RETR_TREE,
+                cv::CHAIN_APPROX_SIMPLE, Point(0, 0));
 
     // Draw contours
     img_contour = Mat::zeros(hueMask.size(), CV_8UC3);
@@ -212,7 +212,7 @@ namespace agribot_vs{
    
     if(ContourCenters.size() > 0 ){
       Vec4f linefit;
-      cv::fitLine(ContourCenters,linefit,CV_DIST_L2,0,0.01,0.01);
+      cv::fitLine(ContourCenters,linefit,cv::DIST_L2,0,0.01,0.01);
 
       P1.x = linefit[0] + linefit[2];
       P1.y = linefit[1] + linefit[3];
@@ -250,7 +250,7 @@ namespace agribot_vs{
 
       MatrixXf R_out(2,2);
       R_out = is_in_image_point(R);
-      cv::line(img, Point(R_out(0,0), R_out(0,1)),Point(R_out(1,0), R_out(1,1)), Scalar(0, 0, 255), 1, CV_AA);
+      cv::line(img, Point(R_out(0,0), R_out(0,1)),Point(R_out(1,0), R_out(1,1)), Scalar(0, 0, 255), 1, cv::LINE_AA);
       AvgLine[0][0] =R_out(0,0);
       AvgLine[0][1] =R_out(0,1);
       AvgLine[0][2] =R_out(1,0);
