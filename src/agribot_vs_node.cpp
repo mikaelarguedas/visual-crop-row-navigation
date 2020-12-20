@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
 
           // draw plant centers in image (in neighbourhood)
           for(size_t i = 0; i < I_primary->nh_points.size(); i++){
-            cv::circle(I_primary->image, Point(I_primary->nh_points[i].x,I_primary->nh_points[i].y),5, Scalar(0, 204, 255), CV_FILLED, 8,0);
+            cv::circle(I_primary->image, Point(I_primary->nh_points[i].x,I_primary->nh_points[i].y),5, Scalar(0, 204, 255), cv::FILLED, 8,0);
           }
 
           Mat des_comp;

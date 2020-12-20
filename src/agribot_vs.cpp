@@ -178,7 +178,7 @@ namespace agribot_vs{
     for (size_t i = 0; i < contours.size(); i++) {
       approxPolyDP(Mat(contours[i]), contours_poly[i], 2, true);
       minEnclosingCircle((Mat)contours_poly[i], center[i], radius[i]);
-      cv::circle(img, Point(center[i].x, center[i].y),3, Scalar(51, 204, 51),CV_FILLED, 8,0);
+      cv::circle(img, Point(center[i].x, center[i].y),3, Scalar(51, 204, 51),cv::FILLED, 8,0);
     }
     return center;
   }
@@ -386,8 +386,8 @@ namespace agribot_vs{
     I.nh.Yc = (I.nh_ex[0].y + I.nh_ex[1].y)/2;
 
     // computes intersection side
-    cv::circle(I.image, Point(P.x, P.y),8, Scalar(0,0,255),CV_FILLED, 12,0);
-    cv::circle(I.image, Point(Q.x, Q.y),8, Scalar(0,255,255),CV_FILLED, 12,0);
+    cv::circle(I.image, Point(P.x, P.y),8, Scalar(0,0,255),cv::FILLED, 12,0);
+    cv::circle(I.image, Point(Q.x, Q.y),8, Scalar(0,255,255),cv::FILLED, 12,0);
 
     // compute Theta
     float Theta = compute_Theta(P,Q);
